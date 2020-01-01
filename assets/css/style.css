@@ -4,8 +4,13 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-ol{
-  padding:0;
+#highScores div div{
+  padding: 5px;
+  font-weight:600;
+}
+
+#highScores div div:nth-child(odd){
+  background-color:#efe6f9;
 }
 
 /* Section Specific Styles */

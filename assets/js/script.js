@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
      clock = setInterval(myTimer, 1000);
     });
   
-  let timeset;
+    // Clears timeout if next question is answered before current timeout is reached
+    let timeset;
     let scoreIndicator = () => {
       clearTimeout(timeset);
       timeset = setTimeout(() => { document.querySelector('#scoreIndicator').classList.add('hide') }, 3000);
@@ -87,24 +88,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
    
    
     document.querySelector("#records button").addEventListener("click", () => {
-     let initialsRecord = document.querySelector('#initials').value
-     recordsArray.push(`${initialsRecord}  ${score}`);
-     document.querySelector('#highScores ol').innerHTML = '';
+     let initialsRecord = document.querySelector('#initials').value;
+     recordsArray.push({"initialRecord":initialsRecord, "score":score});
+     console.log(recordsArray);
+     document.querySelector('#highScores div').innerHTML = '';
      document.getElementById('finish').classList.add('hide');
      document.getElementById('highScores').classList.remove('hide');
-   
+  
+     var i = 1;
+     recordsArray.sort((a, b) => b.score - a.score);
      Array.from(recordsArray).forEach(check => {
-      var score = document.createElement("li");
-      score.innerHTML = check;
-      document.querySelector('#highScores ol').appendChild(score);
+      var scores = document.createElement("div");
+      scores.innerHTML = i + ". " + check.initialRecord  + " - " + check.score;
+      document.querySelector('#highScores div').appendChild(scores);
+      i = i + 1
      });
+     i = 0;
+     
      document.querySelector("#initials").value = '';
     });
    
    
      document.querySelector("#clearScores").addEventListener("click", () => {
       recordsArray = [];
-      document.querySelector('#highScores ol').innerHTML = "";
+      document.querySelector('#highScores div').innerHTML = "";
      }); 
    
      
