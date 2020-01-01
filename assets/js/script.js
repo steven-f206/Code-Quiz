@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let qCount = 0;
     let recordsArray = [];
    
-    //Question Initial data
+    //Set the question Initial data in questionHolder section
     document.querySelector('#quizHolder p').innerHTML = questions[0].title;
     document.querySelector('#quizHolder ol li:nth-of-type(1) div').innerHTML = `1. ${questions[qCount].choices[0]}`;
     document.querySelector('#quizHolder ol li:nth-of-type(2) div').innerHTML = `2. ${questions[qCount].choices[1]}`;
@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
      document.getElementById('quizHolder').classList.remove('hide');
      clock = setInterval(myTimer, 1000);
     });
+  
+  let timeset;
+    let scoreIndicator = () => {
+      clearTimeout(timeset);
+      timeset = setTimeout(() => { document.querySelector('#scoreIndicator').classList.add('hide') }, 3000);
+    }
    
     // Create an array of selected divs so I can refer to them with the this keyword and replace their values to then check against the answer property for all questions.
     let answers = document.querySelectorAll('#quizHolder ol li div');
@@ -40,6 +46,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
       if (this.innerHTML.substring(3, this.length) === questions[qCount].answer) {
        score = score + 1;
        qCount = qCount + 1;
+       document.querySelector('#scoreIndicator p').innerHTML = "Correct!"
+       document.querySelector('#scoreIndicator').classList.remove('hide', scoreIndicator());
        if (qCount === questions.length) {
         document.getElementById('quizHolder').classList.add('hide');
         document.getElementById('finish').classList.remove('hide');
@@ -54,6 +62,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
        }
       } else {
        time = time - 10;
+       document.querySelector('#scoreIndicator p').innerHTML = "Wrong!";
+       document.querySelector('#scoreIndicator').classList.remove('hide', scoreIndicator());
        if (time < 0) {
         time = 0;
         document.getElementById('time').innerHTML = time;
@@ -62,6 +72,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
        if (qCount === questions.length) {
         document.getElementById('quizHolder').classList.add('hide');
         document.getElementById('finish').classList.remove('hide');
+        time = 0;
+        document.getElementById('time').innerHTML = time;
        } else {
         document.querySelector('#quizHolder p').innerHTML = questions[qCount].title;
         document.querySelector('#quizHolder ol li:nth-of-type(1) div').innerHTML = `1. ${questions[qCount].choices[0]}`;
