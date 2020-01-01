@@ -1,7 +1,9 @@
 /* General Styles */
 
-body{
+
+html,body{
   font-family: 'Roboto', sans-serif;
+  height:100%;
 }
 
 #highScores div div{
@@ -13,27 +15,57 @@ body{
   background-color:#efe6f9;
 }
 
+#highScores button{
+  margin:5px 0;
+}
+
 /* Section Specific Styles */
 
+#positionWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100% - 110px)
+}
+
+section{
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#controls{
+  background-color: #41275e;
+}
+
+
+#info{
+  max-width:980px;
+  margin: 0 auto;
+  color: white;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 16px 30px;
+}
 
 
 #scores{
-  position:absolute;
-  top:16px;
+  /* position:absolute; */
+  /* top:16px; */
   left:40px;
+  background-color: #834bc2;
+  color: white;
 }
 
 #timer{
-  position:absolute;
-  top:0;
+  /* position:absolute; */
+  /* top:0; */
   right:40px;
 }
 
 #intro{
   text-align:center;
-  margin:0 auto;
-  max-width:50%;
-  margin-top:200px;
 }
 
 
@@ -51,41 +83,63 @@ button{
 }
 
 
-#quizHolder{
-  margin:0 auto;
-  max-width:50%;
-  margin-top:200px;
-}
-
 #quizHolder #title{
   font-weight:700;
 }
 
 #quizHolder ol{
   list-style-type:none;
+  padding:0;
 }
 
-#quizHolder ol li div{
+#quizHolder ol li{
   background-color:#41275e;
   border-radius:5px;
   color:white;
   margin: 3px 0;
   padding: 5px 5px ;
   cursor:pointer;
-  display:inline-block;
 }
 
-#quizHolder ol li div:hover{
+#quizHolder ol li:hover{
   background-color: #613a8d;
 }
 
-#finish{
-  margin:0 auto;
-  max-width:50%;
-  margin-top:200px;
+
+#scoreIndicator, #errorIndicator{
+  border-top: 1px solid #999;
+  color: #41275e;
+  font-size: 1.3em;
+  margin: 0;
+  font-style: italic;
+  font-weight:700;
+  margin: 10px auto;
 }
 
+#scoreIndicator p, #errorIndicator p{
+margin:0;
+margin-top:10px;
+}
+
+#records input, #records button{
+margin-top:5px;
+}
+
+.hide{
+  display:none;
+}
+
+.invisible{
+  visibility:hidden;
+}
+
+
 @media only screen and (min-width: 768px) {
+
+#positionWrapper{
+  min-height: calc(100% - 82px)
+}
+
 #finish #records{
   display:flex;
   align-items: center;
@@ -94,33 +148,13 @@ button{
 #finish #records input, #finish #records button{
   margin-left:10px;
 }
-}
 
-#highScores{
-  margin:0 auto;
-  max-width:50%;
-  margin-top:200px;
-}
-
-#scoreIndicator{
-  border-top: 1px solid #999;
-    color: #999;
-    font-size: 1.3em;
-    margin: 0;
-    font-style: italic;
-    margin: 0 auto;
-    max-width: 50%;
-}
-
-#scoreIndicator p{
-  margin:0;
-  margin-top:10px;
+#info{
+  flex-direction:row;
 }
 
 section{
-  margin-bottom: 15px!important;
+  max-width:50%;
 }
 
-.hide{
-  display:none;
 }

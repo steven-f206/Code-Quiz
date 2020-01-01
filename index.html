@@ -9,11 +9,17 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/assets.js"></script>
   <script src="assets/js/script.js"></script>
+</head>
 
-  <div><a id="scores" href="">View High Scores</a></div>
-  <div id="timer"><p>Time: <span id="time">0</span></p></div>
+<div id="controls">
+  <div id="info">
+    <button id="scores" href="">View High Scores</button>
+    <div id="timer"><p>Time: <span id="time">0</span></p></div>
+  </div>
+</div>
+  
 
-
+<div id="positionWrapper">
   <section id="intro">
     <h1>Coding Quiz Challenge</h1>
     <p>Try to answer the following code-related questions within the time limit.
@@ -26,12 +32,14 @@
   <section id="quizHolder" class="hide">
     <p id="title"></p>
     <ol>
-      <li><div></div></li>
-      <li><div></div></li>
-      <li><div></div></li>
-      <li><div></div></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
-   
+    <div id="scoreIndicator" class="invisible">
+      <p>&nbsp;</p>
+    </div>
   </section>
 
   <section id="finish" class="hide">
@@ -39,6 +47,9 @@
     <p>Your final score is&nbsp;<span id="score"></span></p>
     <div id="records">
       <p>Enter initials: </p><input id="initials" type="text"> <button>Submit</button>
+    </div>
+    <div id="errorIndicator" class="invisible">
+      <p>&nbsp;</p>
     </div>
   </section>
 
@@ -49,13 +60,11 @@
     </div>
     <button id="reset">Go Back</button> <button id="clearScores">Clear Highscores</button>
   </section>
-
-  <div id="scoreIndicator" class="hide">
-    <p></p>
-  </div>
+</div>
+ 
 
 
-</head>
+
 <body>
   
 </body>
