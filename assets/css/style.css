@@ -1,6 +1,5 @@
 /* General Styles */
 
-
 html,body{
   font-family: 'Roboto', sans-serif;
   height:100%;
@@ -87,24 +86,22 @@ button{
   font-weight:700;
 }
 
-#quizHolder ol{
-  list-style-type:none;
-  padding:0;
-}
 
-#quizHolder ol li{
+#quizHolder button{
   background-color:#41275e;
   border-radius:5px;
   color:white;
   margin: 3px 0;
   padding: 5px 5px ;
   cursor:pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
 }
 
-#quizHolder ol li:hover{
+#quizHolder button:hover{
   background-color: #613a8d;
 }
-
 
 #scoreIndicator, #errorIndicator{
   border-top: 1px solid #999;
@@ -133,28 +130,36 @@ margin-top:5px;
   visibility:hidden;
 }
 
+.disable{
+pointer-events:none;
+}
+
 
 @media only screen and (min-width: 768px) {
 
-#positionWrapper{
-  min-height: calc(100% - 82px)
-}
+  #positionWrapper{
+    min-height: calc(100% - 82px)
+  }
 
-#finish #records{
-  display:flex;
-  align-items: center;
-}
+  #finish #records{
+    display:flex;
+    align-items: center;
+  }
 
-#finish #records input, #finish #records button{
-  margin-left:10px;
-}
+  #finish #records input, #finish #records button{
+    margin-left:10px;
+  }
 
-#info{
-  flex-direction:row;
-}
+  #info{
+    flex-direction:row;
+  }
 
-section{
-  max-width:50%;
-}
+  #quizHolder{
+    min-width:420px;
+  }
+
+  #quizHolder ol{
+    min-width:100%;
+  }
 
 }
